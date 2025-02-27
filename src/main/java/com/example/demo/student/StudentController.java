@@ -1,9 +1,7 @@
 package com.example.demo.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,8 +16,15 @@ public class StudentController {
     }
 
     // restful endpoint
+    // used to get data
     @GetMapping
     public List<Student> getStudents() {
         return this.studentService.getStudents();
+    }
+
+    // used to add data
+    @PostMapping
+    public void addStudent(@RequestBody Student student) {
+        this.studentService.addStudent(student);
     }
 }
