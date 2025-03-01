@@ -13,8 +13,8 @@ public class StudentConfig {
     @Bean
     CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
         return args -> {
-            Student student1 = new Student("omg", "omg@gmail.com", LocalDate.of(1989, Month.AUGUST, 18));
-            Student student2 = new Student("alex", "alex@gmail.com", LocalDate.of(1990, Month.OCTOBER, 15));
+            Student student1 = Student.builder().name("omg").email("omg@gmail.com").dob(LocalDate.of(1989, Month.AUGUST, 18)).build();
+            Student student2 = Student.builder().name("alex").email("alex@gmail.com").dob(LocalDate.of(1990, Month.OCTOBER, 18)).build();
 
             studentRepository.saveAll(List.of(student1, student2));
         };
