@@ -28,6 +28,12 @@ public class StudentController {
         this.studentService.addStudent(student);
     }
 
+    // used to update data
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(@PathVariable("studentId") Long id, @RequestParam(required = false) String name, @RequestParam(required = false) String email) {
+        this.studentService.updateStudent(id, name, email);
+    }
+
     // used to delete data
     @DeleteMapping(path = "{studentId}")
     public void removeStudent(@PathVariable("studentId") Long id) {
